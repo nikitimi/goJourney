@@ -1,8 +1,9 @@
 package deferrer
 
 import (
-	"dev/go/practice/hello"
 	"fmt"
+
+	"github.com/goJourney/hello"
 )
 
 func Deferrer(s string) string {

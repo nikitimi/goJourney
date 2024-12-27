@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"dev/go/practice/deferrer"
+	"github.com/goJourney/deferrer"
 )
 
 func main() {
