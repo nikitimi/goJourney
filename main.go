@@ -10,13 +10,22 @@ type Consumption struct {
 	DateCreated     time.Time
 }
 
+func (p Consumption) PrintConsumptionType() {
+	fmt.Printf("Your consumption type is %v\n", p.ConsumptionType)
+}
+
+func (p Consumption) PrintConsumptionDate() {
+	y, d, m := p.DateCreated.Year(), p.DateCreated.Day(), p.DateCreated.Month()
+	fmt.Printf("Your consumption is created on %v %v, %v\n", m, d, y)
+}
+
 func createObjectFromStruct() {
 	consumption := Consumption{
 		ConsumptionType: "food",
 		DateCreated:     time.Now(),
 	}
-
-	fmt.Printf("Your consumption is %v\n", consumption)
+	consumption.PrintConsumptionDate()
+	consumption.PrintConsumptionType()
 }
 
 func doPanic() {
