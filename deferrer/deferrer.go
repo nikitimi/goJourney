@@ -3,7 +3,7 @@ package deferrer
 import (
 	"fmt"
 
-	"github.com/goJourney/hello"
+	"github.com/nikitimi/goJourney/hello"
 )
 
 func Deferrer(s string) string {
