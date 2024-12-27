@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/goJourney/deferrer"
+	"github.com/nikitimi/goJourney/deferrer"
 )
 
 func main() {
