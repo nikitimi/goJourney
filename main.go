@@ -7,5 +7,5 @@ import (
 )
 
 func main() {
-	fmt.Println(deferrer.Defferer())
+	fmt.Println(deferrer.Deferrer("Mark"))
 }
