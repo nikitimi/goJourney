@@ -2,7 +2,22 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
+
+type Consumption struct {
+	ConsumptionType string
+	DateCreated     time.Time
+}
+
+func createObjectFromStruct() {
+	consumption := Consumption{
+		ConsumptionType: "food",
+		DateCreated:     time.Now(),
+	}
+
+	fmt.Printf("Your consumption is %v\n", consumption)
+}
 
 func doPanic() {
 	defer func() { // Anonymous function.
@@ -41,4 +56,5 @@ func main() {
 	fmt.Println("Deym! recovered.")
 
 	fmt.Printf("\nI've received slice => %v\n", flexCollections())
+	createObjectFromStruct()
 }
