@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 
-	"dev/go/practice/hello"
+	"dev/go/practice/deferrer"
 )
 
 func main() {
-	fmt.Println(hello.String())
+	fmt.Println(deferrer.Defferer())
 }
