@@ -1,5 +1,7 @@
 package hello
 
 func String() string {
-	return "Hello World!"
+	// Testing variables assignment.
+	message := "Hello World!"
+	return message
 }
