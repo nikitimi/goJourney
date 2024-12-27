@@ -10,6 +10,12 @@ type Consumption struct {
 	DateCreated     time.Time
 }
 
+type Management interface {
+	PrintConsumptionType()
+	PrintConsumptionDate()
+	// ChangeConsumptionType()
+}
+
 func (p Consumption) PrintConsumptionType() {
 	fmt.Printf("Your consumption type is %v\n", p.ConsumptionType)
 }
@@ -19,13 +25,27 @@ func (p Consumption) PrintConsumptionDate() {
 	fmt.Printf("Your consumption is created on %v %v, %v\n", m, d, y)
 }
 
+func (p *Consumption) ChangeConsumptionType(newConsumptionType string) {
+	fmt.Println("Pointer?")
+	p.ConsumptionType = newConsumptionType
+}
+
 func createObjectFromStruct() {
-	consumption := Consumption{
+	foodConsumption := Consumption{
 		ConsumptionType: "food",
 		DateCreated:     time.Now(),
 	}
-	consumption.PrintConsumptionDate()
-	consumption.PrintConsumptionType()
+	travelConsumption := Consumption{
+		ConsumptionType: "travel",
+		DateCreated:     time.Now(),
+	}
+	foodConsumption.ChangeConsumptionType("feed")
+	m := []Management{foodConsumption, travelConsumption}
+
+	for _, v := range m {
+		v.PrintConsumptionDate()
+		v.PrintConsumptionType()
+	}
 }
 
 func doPanic() {
