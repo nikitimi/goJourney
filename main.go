@@ -5,14 +5,16 @@ import (
 	"net/http"
 )
 
-func messageHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "Welcome to Go Web Development")
+func messageHandler(message string) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprint(w, message)
+	})
 }
 
 func main() {
 	mux := http.NewServeMux()
 
-	mh1 := http.HandlerFunc(messageHandler)
+	mh1 := messageHandler("Go Web is awesome!")
 	mux.Handle("/welcome", mh1)
 
 	http.ListenAndServe(":8080", mux)
