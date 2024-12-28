@@ -1,11 +1,12 @@
 package main
 
 import (
-	"fmt"
-
-	"dev/go/practice/hello"
+	"net/http"
 )
 
 func main() {
-	fmt.Println(hello.String())
+	mux := http.NewServeMux()
+	fs := http.FileServer(http.Dir("public"))
+	mux.Handle("/", fs)
+	http.ListenAndServe(":8080", mux)
 }
