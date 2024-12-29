@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 )
 
@@ -12,10 +13,15 @@ func messageHandler(message string) http.Handler {
 }
 
 func main() {
-	mux := http.NewServeMux()
+	port := ":8080"
+	ListenAndServe(port, messageHandler("Go Web is awesome!"))
+}
 
-	mh1 := messageHandler("Go Web is awesome!")
-	mux.Handle("/welcome", mh1)
-
-	http.ListenAndServe(":8080", mux)
+func ListenAndServe(addr string, handler http.Handler) error {
+	log.Printf("Listening to Port: %s", addr)
+	server := &http.Server{
+		Addr:    addr,
+		Handler: handler,
+	}
+	return server.ListenAndServe()
 }
